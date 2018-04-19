@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+import uuid
 
 # 用户
 class Users(models.Model):
-    uid = models.AutoField(primary_key=True) # 用户名
+    # uid = models.UUIDField(primary_key=True, default=uuid.uuid4()) # models.IntegerField(primary_key=True,db_column='id')  # 用户
     name = models.CharField(max_length=50)  # 用户名
     dateTime = models.DateField()  # 时间
 
@@ -12,12 +13,14 @@ class Users(models.Model):
 
     # class Meta:
     #     db_table = 'account_users'
+    #     unique_together = ('uid','id')
 
 # 园子
 class Garden(models.Model):
     name = models.CharField(max_length=50)  # 名称
     introduce = models.CharField(max_length=140)  # 介绍
-    # imgurl = models.ImageField()  # 图片
+    cover_url = models.CharField(max_length=500)  # 图片
+    # url = models.ImageField(upload_to='icons',height_field=234,width_field=340)  # 图片
     description = models.TextField()  # 描述
     dateTime = models.DateField()  # 时间
     author = models.ForeignKey(Users, on_delete=models.CASCADE)  # 作者
@@ -83,7 +86,7 @@ class DiscussTopic(models.Model):
 # 主题和讨论关联表 （1：n ）
 class Discuss(models.Model):
     parentId = models.IntegerField()  # 引用ID
-    contnet = models.CharField(max_length=500)  # 内容
+    content = models.CharField(max_length=500)  # 内容
     references = models.IntegerField()  # 引用数
     links = models.IntegerField()   # 点赞数
     dateTime = models.DateField()  # 时间
@@ -91,4 +94,4 @@ class Discuss(models.Model):
     topic = models.ForeignKey(DiscussTopic, on_delete=models.CASCADE)  # 讨论主题
 
     def __str__(self):
-        return self.contnet
+        return self.content

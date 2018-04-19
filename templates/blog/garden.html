@@ -15,36 +15,15 @@
             <div class="carousel-inner">
                 {% for garden in list %}
                     <div class="carousel-item {% if forloop.first%} active {% endif %}  ">
-                      <img class="d-block w-100" src="/statics/images/demo/stock-photos/{% if forloop.first%}1{% elif forloop.last  %}3{% else %}2{% endif %}.jpg" alt="{{ forloop.first }}">
-                      <div class="carousel-caption d-none d-md-block">
-                        <h5 class="text-white">{{ garden.name }}</h5>
-                        <p>{{ garden.introduce }}</p>
-                      </div>
+                          <a href="list-{{ garden.id }}/"  >
+                          <img class="d-block w-100" src="/statics/images/demo/stock-photos/{% if forloop.first%}1{% elif forloop.last  %}3{% else %}2{% endif %}.jpg" alt="{{ forloop.first }}">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-white">{{ garden.name }}-{{ garden.id }}</h5>
+                            <p>{{ garden.introduce }}</p>
+                          </div>
+                          </a>
                     </div>
                 {% endfor %}
-
-
-{#              <div class="carousel-item active">#}
-{#                  <img class="d-block w-100" src="/statics/images/demo/stock-photos/1.jpg" alt="First slide">#}
-{#                  <div class="carousel-caption d-none d-md-block">#}
-{#                    <h5 class="text-white">博客庄园</h5>#}
-{#                    <p>撒上一粒种子 选地搭架子</p>#}
-{#                  </div>#}
-{#              </div>#}
-{#              <div class="carousel-item ">#}
-{#                  <img class="d-block w-100" src="/statics/images/demo/stock-photos/2.jpg" alt="Second slide">#}
-{#                  <div class="carousel-caption d-none d-md-block">#}
-{#                    <h5 class="text-white">平凡世界</h5>#}
-{#                    <p>平凡的人社 不一样的世界</p>#}
-{#                  </div>#}
-{#              </div>#}
-{#              <div class="carousel-item ">#}
-{#                <img class="d-block w-100" src="/statics/images/demo/stock-photos/3.jpg" alt="Second slide">#}
-{#                <div class="carousel-caption d-none d-md-block">#}
-{#                  <h5 class="text-white">神经院子</h5>#}
-{#                  <p>不同的角度 同样的神经</p>#}
-{#                </div>#}
-{#              </div>#}
             </div>
 
             <!--<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
@@ -64,9 +43,7 @@
   </div>
 
   <div class="page-content">
-    <!-- Content -->
     <div class="content clearfix">
-      <!-- Cards -->
       <div id="cards" class="container mb-2" style="padding-bottom: 1px">
         <div class="example col-md-12 ml-auto mr-auto">
           <div class="row">
@@ -77,229 +54,12 @@
                     <img class="card-img-top" src="{{ blog.imgurl }}" alt="Card image cap">
                     <div class="card-body">
                       <h4 class="card-title">{{ blog.title }}</h4>
-                      <p class="card-text">{{ blog.introduction }}.</p>
-                      <a href="{{ blog.Index }}" class="btn btn-primary">阅读23-{{ blog.id }}</a>
+                      <p class="card-text">{{ blog.introduction|truncatechars:200 }}.</p>
+                      <a href="{% url 'detail' blog.id %}" class="btn btn-primary">阅读23-{{ blog.id }}</a>
                     </div>
                   </div>
                 </div>
               {% endfor %}
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-              <div class="card">
-                <img class="card-img-top" src="/statics/images/demo/stock-photos/liuqing.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">滴滴总裁柳青年会演讲</h4>
-                  <p class="card-text"> 2018“乘风破浪”年会上，滴滴出行总裁柳青发表演讲。
-                    柳青在演讲中表示，滴滴已经锤炼出了一般互联网企业没有的基因。
-                    “这是属于我们的天地，这是我们要捍卫的行业。因为没有人比我们更懂，也没有人比我们更在乎这个行业。”
-                    同时，柳青表示：今年将会在内部推出多个项目，尝试解决组织成长的问题。对于未来...</p>
-                  <a href="blog-content1.html" class="btn btn-primary">阅读</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="/statics/images/demo/stock-photos/chenwei.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">滴滴宣布公司架构调整 成立战略事业部和智慧交通事业部</h4>
-                  <p class="card-text">2 月 10 日消息，滴滴出行 CEO 程维近日在滴滴 2018 年年会演讲时公布滴滴新战略，
-                    称 2018 年滴滴有三个关键词：内外兼修、多线布局、稳中求进。关键在内外兼修：从为用户创造价值，到商业成功，从组织进化到更好和主管部门及公众沟通。...</p>
-                  <a href="blog-content2.html" class="btn btn-primary">阅读</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="/statics/images/demo/stock-photos/facebook.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Facebook产品设计副总裁：产品从0到1，能否成功我只看这4点</h4>
-                  <p class="card-text">本周问题是这样的：“过去，我所有的工作，都是与成熟产品打交道。通过不断的改变和优化，为那些产品的进一步发展和成长提供支持。但最近，我进行了一些调整，加入了一支团队从零开始研发全新产品。虽然这样一来各方面的限制比较少，但想想未来可能会遇到的问题，还是让人不禁胆怯。...</p>
-                  <a href="blog-content.html" class="btn btn-primary">阅读</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/1.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/2.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/1.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/2.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/1.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/2.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/1.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/2.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/1.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/2.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/1.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/2.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/1.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/2.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 sm-hidden last">
-              <div class="card">
-                <img class="card-img-top" src="images/demo/stock-photos/2.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h4 class="card-title">Sample Card Title</h4>
-                  <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
-                    in his length hid...</p>
-                  <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-            </div>
 
           </div>
         </div>

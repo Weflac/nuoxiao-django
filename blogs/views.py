@@ -1,52 +1,94 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from blogs.models import Users, Garden, Blogs
+from blogs.models import Users, Garden, Blogs, Commons
+from django.http import Http404
+from django.urls import reverse
+from django.shortcuts import redirect
 
 # 博客首页
 def index(request):
     context = {'hello': 'nuo xiao & 诺晓', 'primary': 'nuo xiao', 'slide': '诺晓，你的精神庄园', 'product': '诺晓 Product By ObjectBin'}
     return render(request,'blog/index.html',context)
 
-
-
 # 园子
 def garden(request):
-    garden = Garden.objects.all().values('name','introduce','description','author','dateTime')
-    garden =list(garden)
+    try:
+        garden = Garden.objects.all().values('id','name','introduce','description','author','dateTime')
+        garden =list(garden)
 
-    blogs = list(Blogs.objects.values('title', 'subtitle', 'introduction', 'imgurl'))
+        blogs = list(Blogs.objects.values('id', 'title', 'subtitle', 'introduction', 'imgurl'))
 
-    context = {'list':garden,'blogs': blogs, 'hello': 'nuoxiao & 诺晓'}
+        context = {'list':garden,'blogs': blogs, 'hello': 'nuoxiao & 诺晓'}
+    except Garden.DoesNotExist:
+        raise Http404
 
-    return render(request,'blog/garden.html',context)
+    return render(request,'blog/garden.html', context)
+
+# 园子-列表
+def garden_list(request,type):
+    try:
+        gardenId = type
+        garden = Garden.objects.values('id','name','introduce','description','author','dateTime').get(id=str(type))
+        gardens = list(Garden.objects.all().values('id','name','introduce','description','author','dateTime'))
+        blogs = list(Blogs.objects.filter(garden_id=type).values('id', 'title', 'subtitle', 'introduction', 'imgurl'))
+
+        context = {'currentId': gardenId, 'garden': garden , 'list':gardens, 'blogs' :  blogs, 'hello': 'nuoxiao & 诺晓'}
+
+    except Garden.DoesNotExist:
+        raise Http404
+
+    return render(request,'blog/garden-list.html',context)
+
+# 园子详情
+def detail(request, id):
+    try:
+        blog = Blogs.objects.values('id', 'title', 'subtitle', 'introduction','description','imgurl','dateTime','author').get(id=str(id))
+        comments = Commons.objects.values('id','parentId','contnet','references','replys','dateTime','links','author','blogs').filter(blogs_id=id)
+
+        context = {'num': id, 'blog': blog, 'comments': comments, 'counts': len(comments) }
+
+    except Blogs.DoesNotExist:
+        return redirect(reverse('notfound'))
+        # raise Http404
+
+    return render(request,'blog/detail.html', context)
+
+
 
 # 添加 用户
 def add_user(request):
     user = Users()
-    user.name = 'weflac'
+    user.name = 'nuoxiao'
     user.dateTime = '2018-03-31'
     user.save()
 
-    return HttpResponse('<div>ok! name=user</div>')
+    return HttpResponse('<div>ok! add user.</div>')
 
 # 添加 园子
 def add_garden(request):
     garden = Garden()
-    garden.name = '平凡世界'
-    garden.introduce = '平凡的人社 不一样的世界'
+    garden.name = '神经院子'
+    garden.cover_url = 'http://www.nuoxiao.com/blog/dist/images/demo/stock-photos/3.jpg'
+    garden.introduce = '不同的角度 同样的神经'
     garden.description = '添加数据是否通过'
     garden.author = Users.objects.get(name='nuoxiao')
     garden.dateTime = '2018-04-10'
     garden.save()
 
-    return  HttpResponse('<div>ok! name=神经园子</div>')
+    return  HttpResponse('<div>ok! name=神经院子</div>')
 
 # 添加 博客
 def add_blogs(request):
     blogs = Blogs()
     blogs.title = 'Facebook产品设计副总裁'
     blogs.subtitle = '产品从0到1，能否成功我只看这4点'
-    blogs.introduction ="""本周问题是这样的：“过去，我所有的工作，都是与成熟产品打交道。通过不断的改变和优化，为那些产品的进一步发展和成长提供支持。但最近，我进行了一些调整，加入了一支团队从零开始研发全新产品。虽然这样一来各方面的限制比较少，但想想未来可能会遇到的问题，还是让人不禁胆怯。因此，我想问，一款产品从无到有，在设计上都存在哪些注意事项？你是否能给我提供几点可行性的建议？” 　　想要从零开始研发一款成功产品，在较大范围内为用户创造新价值，是一件比较困难的事情。这样一种产品在诞生之初，是不可能十全十美的，都需要不断完善优化。就像人一样，产品也要经历不同的生命阶段。与能够扩展升级的成熟产品相比，新产品在研发过程中需要采用不同的策略和流程。 　　因此，为了在最大程度上研发一款能够对全世界产生影响的产品，你最好要搞清楚产品开发要经历的不同阶段，知道每一项目所处的具体阶段，并且了解在该阶段内最为重要的影响因素。"""
+    blogs.introduction = """本周问题是这样的：“过去，我所有的工作，都是与成熟产品打交道。通过不断的改变和优化，
+    为那些产品的进一步发展和成长提供支持。但最近，我进行了一些调整，加入了一支团队从零开始研发全新产品。
+    虽然这样一来各方面的限制比较少，但想想未来可能会遇到的问题，还是让人不禁胆怯。因此，我想问，一款产品从无到有，在设计上都存在哪些注意事项？你是否能给我提供几点可行性的建议？”
+    想要从零开始研发一款成功产品，在较大范围内为用户创造新价值，是一件比较困难的事情。这样一种产品在诞生之初，是不可能十全十美的，都需要不断完善优化。就像人一样，产品也要经历不同的生命阶段。
+    与能够扩展升级的成熟产品相比，新产品在研发过程中需要采用不同的策略和流程。
+    因此，为了在最大程度上研发一款能够对全世界产生影响的产品，你最好要搞清楚产品开发要经历的不同阶段，知道每一项目所处的具体阶段，并且了解在该阶段内最为重要的影响因素。
+    """
     blogs.description = """Facebook 产品设计副总裁：
 “过去，我所有的工作，都是与成熟产品打交道......”
 　　本周问题是这样的：“过去，我所有的工作，都是与成熟产品打交道。通过不断的改变和优化，为那些产品的进一步发展和成长提供支持。但最近，我进行了一些调整，加入了一支团队从零开始研发全新产品。虽然这样一来各方面的限制比较少，但想想未来可能会遇到的问题，还是让人不禁胆怯。因此，我想问，一款产品从无到有，在设计上都存在哪些注意事项？你是否能给我提供几点可行性的建议？”
@@ -119,7 +161,7 @@ def add_blogs(request):
 
 　　第三，继续观察和控制漏斗效率。随着漏斗中用户数量的逐渐增加，你需要想办法证明去漏斗仍然能够正常运作。比如说，你要注意某一特定层级或步骤，是否会出现用户数量的急剧下降等等。
     """
-    blogs.garden = Garden.objects.get(name='神经园子')
+    blogs.garden = Garden.objects.get(name='神经院子')
     blogs.author = Users.objects.get(name='nuoxiao')
     blogs.links = 0
     blogs.reads = 0
@@ -139,18 +181,14 @@ def update_blogs(request):
 
     return  HttpResponse('<div>ok! update = blogs chengwei</div>')
 
-# 园子详情
-def detail(request, num):
-    print("文章"+request.method)
-    blog = Blogs.objects.values('id', 'title', 'subtitle', 'introduction','description','imgurl','dateTime','author').filter(id=num)
-    print("blog:"+blog)
-    print("文章"+request.get_full_path())
-    context = {'blog':blog, 'num': num }
-
-    return render(request,'blog/detail.html', context)
-
 
 # 主题
 def theme(request):
     context = {  }
     return render(request,'blog/theme.html', context)
+
+
+# 404
+def notfound(request):
+    context = {  }
+    return render(request,'404.html', context)
