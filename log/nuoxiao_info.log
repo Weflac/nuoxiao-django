@@ -2621,3 +2621,498 @@ Traceback (most recent call last):
   File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaulttags.py", line 167, in render
     values = list(values)
 TypeError: 'int' object is not iterable
+[2018-04-19 20:24:52,757][Thread-62:15276][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/garden/1/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 54, in detail
+    return render(request,'blog/detail.html', context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 703, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaultfilters.py", line 696, in date
+    return formats.date_format(value, arg)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 361, in format
+    return df.format(format_string)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 36, in format
+    "time-related format specifiers (found '%s')." % piece
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+[2018-04-19 20:25:02,969][Thread-63:11456][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/garden/1/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 54, in detail
+    return render(request,'blog/detail.html', context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 703, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaultfilters.py", line 696, in date
+    return formats.date_format(value, arg)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 361, in format
+    return df.format(format_string)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 36, in format
+    "time-related format specifiers (found '%s')." % piece
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+[2018-04-19 20:25:03,864][Thread-64:12088][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/garden/1/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 54, in detail
+    return render(request,'blog/detail.html', context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 703, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaultfilters.py", line 696, in date
+    return formats.date_format(value, arg)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 361, in format
+    return df.format(format_string)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 36, in format
+    "time-related format specifiers (found '%s')." % piece
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+[2018-04-19 20:25:14,904][Thread-65:15272][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/garden/1/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 54, in detail
+    return render(request,'blog/detail.html', context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 703, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaultfilters.py", line 696, in date
+    return formats.date_format(value, arg)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 361, in format
+    return df.format(format_string)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 36, in format
+    "time-related format specifiers (found '%s')." % piece
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+[2018-04-19 20:25:15,838][Thread-66:12728][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/garden/1/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 54, in detail
+    return render(request,'blog/detail.html', context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 703, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaultfilters.py", line 696, in date
+    return formats.date_format(value, arg)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 361, in format
+    return df.format(format_string)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 36, in format
+    "time-related format specifiers (found '%s')." % piece
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+[2018-04-19 20:25:28,422][Thread-67:1760][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/garden/1/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 54, in detail
+    return render(request,'blog/detail.html', context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 703, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaultfilters.py", line 696, in date
+    return formats.date_format(value, arg)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 361, in format
+    return df.format(format_string)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 36, in format
+    "time-related format specifiers (found '%s')." % piece
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+[2018-04-19 20:25:29,666][Thread-68:14200][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/garden/1/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 54, in detail
+    return render(request,'blog/detail.html', context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 703, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaultfilters.py", line 696, in date
+    return formats.date_format(value, arg)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 361, in format
+    return df.format(format_string)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 36, in format
+    "time-related format specifiers (found '%s')." % piece
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+[2018-04-19 20:25:33,621][Thread-69:3168][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/garden/1/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 54, in detail
+    return render(request,'blog/detail.html', context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 703, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaultfilters.py", line 696, in date
+    return formats.date_format(value, arg)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 361, in format
+    return df.format(format_string)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 36, in format
+    "time-related format specifiers (found '%s')." % piece
+TypeError: The format for date objects may not contain time-related format specifiers (found 'h').
+[2018-04-19 20:26:01,059][Thread-72:13984][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/garden/1/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 54, in detail
+    return render(request,'blog/detail.html', context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 155, in render
+    return compiled_parent._render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 67, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 943, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 910, in render_annotated
+    return self.render(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 993, in render
+    output = self.filter_expression.resolve(context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 703, in resolve
+    new_obj = func(obj, *arg_vals)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaultfilters.py", line 696, in date
+    return formats.date_format(value, arg)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\formats.py", line 152, in date_format
+    return dateformat.format(value, get_format(format or 'DATE_FORMAT', use_l10n=use_l10n))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 361, in format
+    return df.format(format_string)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 36, in format
+    "time-related format specifiers (found '%s')." % piece
+TypeError: The format for date objects may not contain time-related format specifiers (found 'H').

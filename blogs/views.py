@@ -5,6 +5,7 @@ from django.http import Http404
 from django.urls import reverse
 from django.shortcuts import redirect
 
+
 # 博客首页
 def index(request):
     context = {'hello': 'nuo xiao & 诺晓', 'primary': 'nuo xiao', 'slide': '诺晓，你的精神庄园', 'product': '诺晓 Product By ObjectBin'}
@@ -186,7 +187,6 @@ def update_blogs(request):
 def theme(request):
     context = {  }
     return render(request,'blog/theme.html', context)
-
 
 # 404
 def notfound(request):

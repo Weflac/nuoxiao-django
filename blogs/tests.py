@@ -1,39 +1,34 @@
 # -*- coding: utf-8 -*-
 
-from django.http import HttpResponse
-from blogs.models import Users, Garden
-from django.test import TestCase
-
-import unittest
+import functools
 
 
 # 添加用户
-def AddUser():
-    user = Users('nuoxiao')
-    # user.name = 'nuoxiao'
-    user.dateTime = '2018-03-31'
-    user.save()
+def showary(*args, **kwargs):
+    print(args)
+    print(kwargs)
 
-    return  True  # HttpResponse('<p>用户添加成功！</p>')
 
-# 添加园子
-def AddGarden():
-    garden = Garden(name='神经园子')
-    # garden.name = '神经园子'
-    garden.introduce = '测试数据'
-    garden.description = '添加数据是否通过'
-    garden.author = Users.objects.get(name='nuoxiao')
-    garden.dateTime = '2018-03-31'
-    garden.save()
+p1=functools.partial(showary,1,2,3)
+p1()
+p1(4,5,6)
+p1(a='python', b='itcest')
 
-    return False  # HttpResponse('OK!')
 
-class TestAdd(unittest.TestCase):
-    def test_int(self):
-        self.assertTrue(AddGarden())
-    def test_add(self):
-        self.assertFalse(AddUser())
+p2=functools.partial(showary, a=3, b='liunx')
+p2()
+p2(1,2)
+p2(a='python', b='itcest')
 
-if __name__ == '__main__':
-    unittest.main()
+
+
+#
+# class testAdd(unittest.TestCase):
+#     def test_int(self):
+#         self.assertGreater(showary())
+#     def test_add(self):
+#         self.assertFalse(showary())
+#
+# if __name__ == '__main__':
+#     unittest.main()
 

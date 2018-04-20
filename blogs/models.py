@@ -47,6 +47,7 @@ class Blogs(models.Model):
 # 评论
 class Commons(models.Model):
     parentId = models.IntegerField() # 引用ID
+    title = models.CharField(max_length=20)  # 标题
     contnet = models.CharField(max_length=500)  # 内容
     references = models.IntegerField()   # 引用数
     replys = models.IntegerField()  # 回复数/评论数

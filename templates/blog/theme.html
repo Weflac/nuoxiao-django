@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
 {% block mainbody %}
-
+    <div class="shards-landing-page--1">
       <!-- Welcome Section -->
       <div class="welcome d-flex justify-content-center flex-column">
         <div class="container">
           <!-- Navigation -->
           <nav class="navbar navbar-expand-lg navbar-dark pt-4 px-0">
             <a class="navbar-brand" href="http://www.nuoxiao.com/">
-              <img src="/statics/images/agency-landing/shards-logo-white.svg" class="mr-2" alt="Shards - Agency Landing Page">
-              诺晓 nuoxiao
+              <img src="/statics/images/agency-landing/shards-logo-white.svg" class="mr-2" alt="Shards - Agency Landing Page"> 诺晓 nuoxiao
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -23,10 +22,10 @@
                   <a class="nav-link" href="#">服务</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="blog.html">庄园</a>
+                  <a class="nav-link" href="/blogs/garden">庄园</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="theme.html">主题</a>
+                  <a class="nav-link" href="/blogs/theme">主题</a>
                 </li>
               </ul>
 
@@ -44,13 +43,14 @@
                   <a class="nav-link" href="https://github.com/"><i class="fa fa-github"></i></a>
                 </li>
               </ul>
+
             </div>
           </nav>
           <!-- / Navigation -->
         </div>
 
         <!-- Inner Wrapper -->
-        <div class="inner-wrapper mt-auto mb-auto container">
+        <div class="inner-wrapper  ">
           <div class="row">
             <div class="col-md-7">
                 <h1 class="welcome-heading display-4 text-white">主题 @Theme</h1>
@@ -227,5 +227,5 @@
         </div>
       </div>
       <!-- / Contact Section -->
-
+    </div>
 {% endblock %}
