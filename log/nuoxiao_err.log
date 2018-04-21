@@ -3054,3 +3054,141 @@ Traceback (most recent call last):
   File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateformat.py", line 36, in format
     "time-related format specifiers (found '%s')." % piece
 TypeError: The format for date objects may not contain time-related format specifiers (found 'H').
+[2018-04-20 17:07:50,597][Thread-12:15028][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/garden/1/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 74, in detail
+    return render(request,'blog/detail.html', context)
+UnboundLocalError: local variable 'context' referenced before assignment
+[2018-04-20 17:10:58,638][Thread-10:13976][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/garden/1/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 63, in detail
+    common.save()
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 842, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\base.py", line 880, in _do_insert
+    using=using, raw=raw)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 1125, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\compiler.py", line 1283, in execute_sql
+    for sql, params in self.as_sql():
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\compiler.py", line 1236, in as_sql
+    for obj in self.query.objs
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\compiler.py", line 1236, in <listcomp>
+    for obj in self.query.objs
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\compiler.py", line 1235, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\compiler.py", line 1175, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\__init__.py", line 767, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\__init__.py", line 1276, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\__init__.py", line 1271, in get_prep_value
+    return self.to_python(value)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\fields\__init__.py", line 1233, in to_python
+    parsed = parse_date(value)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\dateparse.py", line 74, in parse_date
+    match = date_re.match(value)
+TypeError: expected string or bytes-like object
+[2018-04-21 13:23:44,973][Thread-1:8600][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/theme/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 55, in theme
+    context = {users:users, themes:themes, blogs:blogs, hello:hello }
+TypeError: unhashable type: 'dict'
+[2018-04-21 13:24:06,189][Thread-6:4292][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/theme/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 55, in theme
+    context = {users:users, themes:themes, blogs:blogs, hello:hello }
+TypeError: unhashable type: 'dict'
+[2018-04-21 13:25:03,127][Thread-10:8704][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/theme/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 55, in theme
+    context = {'users': users, 'themes': themes, 'blogs': blogs, 'hello': hello }
+TypeError: unhashable type: 'dict'
+[2018-04-21 14:01:41,425][Thread-1:9648][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/theme/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 62, in theme
+    return render(request, 'blog/theme.html', context)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 483, in parse
+    raise self.error(token, e)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 290, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 483, in parse
+    raise self.error(token, e)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\loader_tags.py", line 233, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 483, in parse
+    raise self.error(token, e)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 481, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\defaulttags.py", line 814, in do_for
+    sequence = parser.compile_filter(bits[in_index + 1])
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 568, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\template\base.py", line 668, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '-blogs' from 'theme-blogs'
