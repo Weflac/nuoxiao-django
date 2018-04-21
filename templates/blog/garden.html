@@ -55,7 +55,8 @@
                     <div class="card-body">
                       <h4 class="card-title">{{ blog.title }}</h4>
                       <p class="card-text">{{ blog.introduction|truncatechars:200 }}.</p>
-                      <a href="{% url 'detail' blog.id %}" class="btn btn-primary">阅读23-{{ blog.id }}</a>
+                        <a href="{% url 'detail' blog.id %}"
+                           class="btn btn-primary">阅读 {{ blog.reads }}-{{ blog.links }}</a>
                     </div>
                   </div>
                 </div>

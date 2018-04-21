@@ -1,9 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from blogs.models import Users, Garden, Blogs, Commons
-from django.http import Http404
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, Http404
 from django.urls import reverse
-from django.shortcuts import redirect
+
+from blogs.models import Users, Garden, Blogs, Commons, Theme, ThemeBlogs, Discuss, DiscussTopic
+
+import time
 
 
 # 博客首页
@@ -17,7 +18,7 @@ def garden(request):
         garden = Garden.objects.all().values('id','name','introduce','description','author','dateTime')
         garden =list(garden)
 
-        blogs = list(Blogs.objects.values('id', 'title', 'subtitle', 'introduction', 'imgurl'))
+        blogs = list(Blogs.objects.values('id', 'title', 'subtitle', 'introduction', 'imgurl', 'links', 'reads'))
 
         context = {'list':garden,'blogs': blogs, 'hello': 'nuoxiao & 诺晓'}
     except Garden.DoesNotExist:
@@ -31,7 +32,9 @@ def garden_list(request,type):
         gardenId = type
         garden = Garden.objects.values('id','name','introduce','description','author','dateTime').get(id=str(type))
         gardens = list(Garden.objects.all().values('id','name','introduce','description','author','dateTime'))
-        blogs = list(Blogs.objects.filter(garden_id=type).values('id', 'title', 'subtitle', 'introduction', 'imgurl'))
+        blogs = list(
+            Blogs.objects.filter(garden_id=type).values('id', 'title', 'subtitle', 'introduction', 'description',
+                                                        'imgurl', 'dateTime', 'links', 'reads'))
 
         context = {'currentId': gardenId, 'garden': garden , 'list':gardens, 'blogs' :  blogs, 'hello': 'nuoxiao & 诺晓'}
 
@@ -40,20 +43,64 @@ def garden_list(request,type):
 
     return render(request,'blog/garden-list.html',context)
 
+
+
+# 主题
+def theme(request):
+    try:
+        users = Users.objects.all().values('id', 'name', 'nickname', 'subject', 'introduce', 'icon', 'dateTime')
+        themes = list(
+            Theme.objects.all().values('id', 'themeName', 'icon', 'introduce', 'description', 'author', 'datetime',
+                                       'members'))
+        theme_blogs = list(
+            ThemeBlogs.objects.all().values('id', 'title', 'subtitle', 'introduction', 'description', 'imgurl',
+                                            'dateTime', 'links', 'reads'))
+
+        print("blogs", theme_blogs)
+        hello = {'welcome': '主题 @Theme', 'subtitle': '创建自己喜欢的主题,不同的组织不一样的精神庄园,启发你不一样的内心世界与你分享'}
+
+        context = {'users': users, 'themes': themes, 'themeBlogs': theme_blogs, 'hello': hello}
+
+    except Garden.DoesNotExist:
+        raise Http404
+
+    return render(request, 'blog/theme.html', context)
+
+# 404
+def notfound(request):
+    context = {  }
+    return render(request,'404.html', context)
+
+
 # 园子详情
 def detail(request, id):
     try:
-        blog = Blogs.objects.values('id', 'title', 'subtitle', 'introduction','description','imgurl','dateTime','author').get(id=str(id))
-        comments = Commons.objects.values('id','parentId','contnet','references','replys','dateTime','links','author','blogs').filter(blogs_id=id)
+        if request.method == 'POST':
+            title = request.POST['title']
+            message = request.POST['message']
 
-        context = {'num': id, 'blog': blog, 'comments': comments, 'counts': len(comments) }
+            common = Commons()
+            common.author = Users.objects.get(id=1)
+            common.blogs = Blogs.objects.get(id=id)
+            common.contnet = message
+            common.title = title
+            common.dateTime = time.time()
+            common.links = 0
+            common.references = 0
+            common.replys = 0
+            common.save()
+
+        blog = Blogs.objects.values('id', 'title', 'subtitle', 'introduction', 'description', 'imgurl', 'dateTime',
+                                    'author').get(id=str(id))
+        comments = Commons.objects.values('id', 'parentId', 'contnet', 'references', 'replys', 'dateTime', 'links',
+                                          'author', 'blogs').filter(blogs_id=id)
+        context = {'num': id, 'blog': blog, 'comments': comments, 'counts': len(comments)}
 
     except Blogs.DoesNotExist:
         return redirect(reverse('notfound'))
         # raise Http404
 
-    return render(request,'blog/detail.html', context)
-
+    return render(request, 'blog/detail.html', context)
 
 
 # 添加 用户
@@ -64,6 +111,7 @@ def add_user(request):
     user.save()
 
     return HttpResponse('<div>ok! add user.</div>')
+
 
 # 添加 园子
 def add_garden(request):
@@ -76,7 +124,8 @@ def add_garden(request):
     garden.dateTime = '2018-04-10'
     garden.save()
 
-    return  HttpResponse('<div>ok! name=神经院子</div>')
+    return HttpResponse('<div>ok! name=神经院子</div>')
+
 
 # 添加 博客
 def add_blogs(request):
@@ -170,7 +219,8 @@ def add_blogs(request):
     blogs.dateTime = '2018-04-10'
     blogs.save()
 
-    return  HttpResponse('<div>ok! facebook=blogs chengwei</div>')
+    return HttpResponse('<div>ok! facebook=blogs chengwei</div>')
+
 
 # 修改 博客
 def update_blogs(request):
@@ -178,17 +228,7 @@ def update_blogs(request):
     # blogs.imgurl = 'http://www.nuoxiao.com/blog/dist/images/demo/stock-photos/chenwei.jpg'
     # blogs.save()
 
-    Blogs.objects.filter(title='滴滴宣布公司架构调整').update(imgurl='http://www.nuoxiao.com/blog/dist/images/demo/stock-photos/chenwei.jpg')
+    Blogs.objects.filter(title='滴滴宣布公司架构调整').update(
+        imgurl='http://www.nuoxiao.com/blog/dist/images/demo/stock-photos/chenwei.jpg')
 
-    return  HttpResponse('<div>ok! update = blogs chengwei</div>')
-
-
-# 主题
-def theme(request):
-    context = {  }
-    return render(request,'blog/theme.html', context)
-
-# 404
-def notfound(request):
-    context = {  }
-    return render(request,'404.html', context)
+    return HttpResponse('<div>ok! update = blogs chengwei</div>')

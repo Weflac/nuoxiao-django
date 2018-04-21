@@ -19,13 +19,13 @@
                   <!--<a class="nav-link" href="http://www.nuoxiao.com/">NuoXiao <span class="sr-only">(current)</span></a>-->
                 <!--</li>-->
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">服务</a>
+                    <a class="nav-link" href="../../">服务</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/blogs/garden">庄园</a>
+                    <a class="nav-link" href="/blog/garden/">庄园</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/blogs/theme">主题</a>
+                    <a class="nav-link" href="/blog/theme/">主题</a>
                 </li>
               </ul>
 
@@ -53,8 +53,8 @@
         <div class="inner-wrapper  ">
           <div class="row">
             <div class="col-md-7">
-                <h1 class="welcome-heading display-4 text-white">主题 @Theme</h1>
-                <p class="text-white">创建自己喜欢的主题,不同的组织不一样的精神庄园,启发你不一样的内心世界与你分享</p>
+                <h1 class="welcome-heading display-4 text-white">{{ hello.welcome }}</h1>
+                <p class="text-white">{{ hello.subtitle }}</p>
                 <!--<a href="#our-services" class="btn btn-lg btn-outline-white btn-pill align-self-center">Learn More</a>-->
             </div>
           </div>
@@ -70,38 +70,17 @@
         <div class="features py-4 mb-4">
           <div class="container">
             <div class="row">
-              <div class="feature py-4 col-md-6 d-flex">
-                <div class="icon text-primary mr-3"><i class="fa fa-paint-brush"></i></div>
-                <div class="px-4">
-                    <h5>潭州 @ 夜话</h5>
-                    <p>传承实践中国传统文化，弘扬国学理念感化，教导，学习</p>
-                </div>
-              </div>
-              <div class="feature py-4 col-md-6 d-flex">
-                <div class="icon text-primary mr-3"><i class="fa fa-code"></i></div>
-                <div class="px-4">
-                    <h5>粮食店铺</h5>
-                    <p>为零食吃的更健康，随时随地都可以买到</p>
-                </div>
-              </div>
+                {% for theme in themes %}
+                    <div class="feature py-4 col-md-6 d-flex">
+                        <div class="icon text-primary mr-3"><i class="{{ theme.icon }}"></i></div>
+                        <div class="px-4">
+                            <h5>{{ theme.themeName }}</h5>
+                            <p>{{ theme.introduce }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
 
-            <div class="row">
-              <div class="feature py-4 col-md-6 d-flex">
-                <div class="icon text-primary mr-3"><i class="fa fa-font"></i></div>
-                <div class="px-4">
-                    <h5>神经元子</h5>
-                    <p>别人笑我太疯癫，我笑别人看不穿</p>
-                </div>
-              </div>
-              <div class="feature py-4 col-md-6 d-flex">
-                <div class="icon text-primary mr-3"><i class="fa fa-support"></i></div>
-                <div class="px-4">
-                    <h5>岳麓 & 长沙</h5>
-                    <p>依托长沙岳麓山地理，历史文化，大学城，为打造娱乐，锻炼有趣的社交活动为主题的组织</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <!-- / Features -->
@@ -110,44 +89,26 @@
 
       <!-- Our Blog Section -->
       <div class="blog section section-invert py-4">
-        <h3 class="section-title text-center m-5">主题庄园</h3>
+          <h3 class="section-title text-center m-5">主题院</h3>
 
         <div class="container">
           <div class="py-4">
             <div class="row">
               <div class="card-deck">
-              <div class="col-md-12 col-lg-4">
-                <div class="card mb-4">
-                  <img class="card-img-top" src="/statics/images/common/card-1.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h4 class="card-title">Find Great Places to Work While Travelling</h4>
-                    <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...</p>
-                    <a class="btn btn-primary btn-pill" href="theme-content.html">Read More &rarr;</a>
-                  </div>
-                </div>
-              </div>
+                  {% for item in themeBlogs %}
+                      <div class="col-md-12 col-lg-4">
+                          <div class="card mb-4">
+                              <img class="card-img-top" src="{{ item.imgurl }}"
+                                   onerror='this.src="/statics/images/demo/stock-photos/1.jpg";' alt="Card image cap">
+                              <div class="card-body">
+                                  <h4 class="card-title">{{ item.title }}</h4>
+                                  <p class="card-text">{{ item.introduction }}.</p>
+                                  <a class="btn btn-primary btn-pill" href="/">阅读{{ item.reads }}-{{ item.links }} </a>
+                              </div>
+                          </div>
+                      </div>
 
-              <div class="col-md-12 col-lg-4">
-                <div class="card mb-4">
-                  <img class="card-img-top" src="/statics/images/common/card-3.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h4 class="card-title">Quick Tips for Improving Your Website's Design</h4>
-                    <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...</p>
-                    <a class="btn btn-primary btn-pill" href="#">Read More &rarr;</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-12 col-lg-4">
-                <div class="card mb-4">
-                  <img class="card-img-top" src="/statics/images/common/card-2.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h4 class="card-title">A Designer's Tips While Travelling and Working</h4>
-                    <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed in his length hid...</p>
-                    <a class="btn btn-primary btn-pill" href="#">Read More &rarr;</a>
-                  </div>
-                </div>
-              </div>
+                  {% endfor %}
               </div>
             </div>
           </div>
@@ -160,32 +121,17 @@
           <h3 class="section-title text-center m-5">主题创作者</h3>
           <div class="container py-5">
             <div class="row">
-                <div class="col-md-4 testimonial text-center">
-                    <div class="avatar rounded-circle with-shadows mb-3 ml-auto mr-auto">
-                        <img src="/statics/images/common/avatar-1.jpeg" class="w-100" alt="Testimonial Avatar" />
+                {% for user in users %}
+                    <div class="col-md-4 testimonial text-center">
+                        <div class="avatar rounded-circle with-shadows mb-3 ml-auto mr-auto">
+                            <img src="{{ user.icon }}" onerror='this.src="/statics/images/demo/stock-photos/1.jpg";'
+                                 class="w-100" alt="Testimonial Avatar"/>
+                        </div>
+                        <h5 class="mb-1">{{ user.nickname }}</h5>
+                        <span class="text-muted d-block mb-2">{{ user.subject }}</span>
+                        <p>{{ user.introduce }}</p>
                     </div>
-                    <h5 class="mb-1">李三张</h5>
-                    <span class="text-muted d-block mb-2">精神元子作者</span>
-                    <p>天生”古怪“，常被人理解成疯子，创建神经元子他的内心世界</p>
-                </div>
-
-                <div class="col-md-4 testimonial text-center">
-                    <div class="avatar rounded-circle with-shadows mb-3 ml-auto mr-auto">
-                        <img src="/statics/images/common/avatar-2.jpeg" class="w-100" alt="Testimonial Avatar" />
-                    </div>
-                    <h5 class="mb-1">李岳麓</h5>
-                    <span class="text-muted d-block mb-2">长沙岳麓创始人</span>
-                    <p>生于长沙从小在岳麓长大，对岳麓山非常喜爱，推崇，岳麓山有历史明亭，书院</p>
-                </div>
-
-                <div class="col-md-4 testimonial text-center">
-                    <div class="avatar rounded-circle with-shadows mb-3 ml-auto mr-auto">
-                        <img src="/statics/images/common/avatar-3.jpeg" class="w-100" alt="Testimonial Avatar" />
-                    </div>
-                    <h5 class="mb-1">李良平</h5>
-                    <span class="text-muted d-block mb-2">粮食店铺CEO</span>
-                    <p> 创建粮食店铺是为了中国人吃零食吃的更健康.</p>
-                </div>
+                {% endfor %}
             </div>
           </div>
       </div>
