@@ -3300,3 +3300,7 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 [2018-04-21 14:32:28,315][Thread-53:5204][task_id:django.request][base.py:93][WARNING][Not Found: /blog/theme/None]
 [2018-04-21 14:33:13,074][Thread-59:6236][task_id:django.request][base.py:93][WARNING][Not Found: /blog/theme/None]
 [2018-04-21 14:56:59,181][Thread-174:11828][task_id:django.request][base.py:93][WARNING][Not Found: /blog/theme/None]
+[2018-04-24 10:06:46,738][Thread-13:13696][task_id:django.request][base.py:93][WARNING][Not Found: /blog/theme/None]
+[2018-04-24 10:12:42,299][Thread-3:13816][task_id:django.request][base.py:93][WARNING][Not Found: /blog/theme/None]
+[2018-04-24 10:24:18,660][Thread-10:1244][task_id:django.request][base.py:93][WARNING][Not Found: /blog/img/favicon.ico]
+[2018-04-24 10:24:33,092][Thread-12:14240][task_id:django.request][base.py:93][WARNING][Not Found: /blog/theme/None]

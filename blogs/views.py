@@ -56,7 +56,6 @@ def theme(request):
             ThemeBlogs.objects.all().values('id', 'title', 'subtitle', 'introduction', 'description', 'imgurl',
                                             'dateTime', 'links', 'reads'))
 
-        print("blogs", theme_blogs)
         hello = {'welcome': '主题 @Theme', 'subtitle': '创建自己喜欢的主题,不同的组织不一样的精神庄园,启发你不一样的内心世界与你分享'}
 
         context = {'users': users, 'themes': themes, 'themeBlogs': theme_blogs, 'hello': hello}
