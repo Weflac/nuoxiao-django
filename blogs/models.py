@@ -3,8 +3,11 @@ from django.db import models
 
 # 用户
 class Users(models.Model):
-    name = models.CharField(max_length=50)  # 用户名
+    username = models.CharField(max_length=50)  # 用户名
     nickname = models.CharField(max_length=50, null=True)  # 昵称
+    phone = models.CharField(max_length=11, null=True)  # 手机号码
+    password = models.CharField(max_length=50, null=True)  # 密码
+    email = models.EmailField(max_length=50, null=True)  # 邮箱
     subject = models.CharField(max_length=50, null=True)  # 主题
     introduce = models.CharField(max_length=140, null=True)  # 用户名
     icon = models.CharField(max_length=50, null=True)  # icon
@@ -64,7 +67,7 @@ class Commons(models.Model):
 # 主题
 class Theme(models.Model):
     themeName = models.CharField(max_length=50)  # 主题名
-    icon = models.CharField(max_length=50)  # 主题名
+    icon = models.CharField(max_length=50, null=True)  # 主题标示
     introduce = models.CharField(max_length=140)  # 介绍
     description = models.TextField()  # 规则描述
     members = models.IntegerField()  # 成员数
