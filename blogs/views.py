@@ -48,13 +48,9 @@ def garden_list(request,type):
 # 主题
 def theme(request):
     try:
-        users = Users.objects.all().values('id', 'name', 'nickname', 'subject', 'introduce', 'icon', 'dateTime')
-        themes = list(
-            Theme.objects.all().values('id', 'themeName', 'icon', 'introduce', 'description', 'author', 'datetime',
-                                       'members'))
-        theme_blogs = list(
-            ThemeBlogs.objects.all().values('id', 'title', 'subtitle', 'introduction', 'description', 'imgurl',
-                                            'dateTime', 'links', 'reads'))
+        users = Users.objects.all().values('id', 'username', 'nickname', 'subject', 'introduce', 'icon', 'dateTime')
+        themes = list(Theme.objects.all().values('id', 'themeName', 'icon', 'introduce', 'description', 'author', 'datetime', 'members'))
+        theme_blogs = list(ThemeBlogs.objects.all().values('id', 'title', 'subtitle', 'introduction', 'description', 'imgurl',  'dateTime', 'links', 'reads'))
 
         hello = {'welcome': '主题 @Theme', 'subtitle': '创建自己喜欢的主题,不同的组织不一样的精神庄园,启发你不一样的内心世界与你分享'}
 

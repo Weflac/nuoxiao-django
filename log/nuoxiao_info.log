@@ -3310,3 +3310,70 @@ django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '
 [2018-04-28 16:09:27,815][Thread-13:524][task_id:django.request][base.py:93][WARNING][Not Found: /favicon.ico]
 [2018-04-28 16:11:02,656][Thread-22:3788][task_id:django.request][base.py:93][WARNING][Not Found: /blog/theme/None]
 [2018-05-02 17:28:54,379][Thread-13:5180][task_id:django.request][base.py:93][WARNING][Not Found: /blog/img/favicon.ico]
+[2018-05-10 15:56:01,226][Thread-18:13188][task_id:django.request][base.py:93][WARNING][Not Found: /blog/img/favicon.ico]
+[2018-05-10 15:57:17,306][Thread-23:7736][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/theme/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1682, in add_fields
+    join_info = self.setup_joins(name.split(LOOKUP_SEP), opts, alias, allow_many=allow_m2m)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1447, in setup_joins
+    names, opts, allow_many, fail_on_missing=True)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1378, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'name' into field. Choices are: blogs, commons, dateTime, discuss, discusstopic, email, garden, icon, id, introduce, nickname, password, phone, subject, theme, themeblogs, username
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 51, in theme
+    users = Users.objects.all().values('id', 'name', 'nickname', 'subject', 'introduce', 'icon', 'dateTime')
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 742, in values
+    clone = self._values(*fields, **expressions)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 737, in _values
+    clone.query.set_values(fields)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1934, in set_values
+    self.add_fields(field_names, True)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1705, in add_fields
+    "Choices are: %s" % (name, ", ".join(names)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'name' into field. Choices are: blogs, commons, dateTime, discuss, discusstopic, email, garden, icon, id, introduce, nickname, password, phone, subject, theme, themeblogs, username
+[2018-05-10 15:57:17,602][Thread-24:1748][task_id:django.request][base.py:93][WARNING][Not Found: /favicon.ico]
+[2018-05-10 15:57:40,706][Thread-27:15756][task_id:django.request][base.py:93][WARNING][Not Found: /blog/theme]
+[2018-05-10 15:57:56,577][Thread-31:12224][task_id:django.request][exception.py:118][ERROR][Internal Server Error: /blog/theme/]
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1682, in add_fields
+    join_info = self.setup_joins(name.split(LOOKUP_SEP), opts, alias, allow_many=allow_m2m)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1447, in setup_joins
+    names, opts, allow_many, fail_on_missing=True)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1378, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'name' into field. Choices are: blogs, commons, dateTime, discuss, discusstopic, email, garden, icon, id, introduce, nickname, password, phone, subject, theme, themeblogs, username
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+    response = get_response(request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\weflac\nuoxiao-django\blogs\views.py", line 51, in theme
+    users = Users.objects.all().values('id', 'name', 'nickname', 'subject', 'introduce', 'icon', 'dateTime')
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 742, in values
+    clone = self._values(*fields, **expressions)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 737, in _values
+    clone.query.set_values(fields)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1934, in set_values
+    self.add_fields(field_names, True)
+  File "C:\Users\Bin\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\query.py", line 1705, in add_fields
+    "Choices are: %s" % (name, ", ".join(names)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'name' into field. Choices are: blogs, commons, dateTime, discuss, discusstopic, email, garden, icon, id, introduce, nickname, password, phone, subject, theme, themeblogs, username
+[2018-05-10 16:00:08,060][Thread-4:12140][task_id:django.request][base.py:93][WARNING][Not Found: /blog/theme/None]
+[2018-05-26 11:19:10,751][Thread-5:14228][task_id:django.request][base.py:93][WARNING][Not Found: /blog]
+[2018-05-26 11:19:10,822][Thread-6:8408][task_id:django.request][base.py:93][WARNING][Not Found: /favicon.ico]
+[2018-06-06 11:05:43,136][Thread-18:10552][task_id:django.request][base.py:93][WARNING][Not Found: /blog/img/favicon.ico]
