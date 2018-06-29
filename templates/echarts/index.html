@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block mainbody %}
+    <!-- Floating Shards -->
+  <img src="/statics/images/demo/shard-1-5x-3.png" alt="Shard" class="shard">
+
+  <!-- Welcome Section -->
+  <div class="welcome d-flex justify-content-center flex-column">
+    <div class="inner-wrapper mt-auto mb-auto">
+      <h1 class="slide-in text-primary"> {{ primary }} </h1>
+      <p class="row"></p>
+      <p class="slide-in">{{ slide }}</p>
+      <!--<div class="action-links slide-in">-->
+        <!--<a href="http://www.nuoxiao.com/blogs/" class="btn btn-outline-primary">文章</a>-->
+        <!--<a href="#" data-scroll-to="#introduction" id="scroll-to-content" class="btn btn-outline-light  ">阅读</a>-->
+      <!--</div>-->
+    </div>
+    <div class="product-by">
+      <a href="https://www.nuoxiao.com" target="_blank"> <p>{{ product }}</p></a>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="page-content">
+
+
+  </div>
+  <!-- End Page Content -->
+
+{% endblock %}

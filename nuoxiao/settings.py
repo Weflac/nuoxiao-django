@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '01cfz9(*$7doe#l@r2pn2xx5j2z2h458kv!-my$8p-bhw(4=7)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True   # True: ALLOWED_HOSTS=[]
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'nuoxiao.com']  # if DEBUG = False
 
 
 # Application definition

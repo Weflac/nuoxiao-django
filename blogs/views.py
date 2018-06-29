@@ -1,11 +1,18 @@
+# -*- coding: utf-8 -*-
+import time
+import math
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 from django.urls import reverse
-
+from django.template import loader
 from blogs.models import Users, Garden, Blogs, Commons, Theme, ThemeBlogs, Discuss, DiscussTopic
+from pyecharts import Line3D, Bar, Line, Map
+from pyecharts_javascripthon.dom import alert
+import pyecharts.echarts.events as events
 
-import time
-
+# echart 依赖包
+REMOTE_HOST = "https://pyecharts.github.io/assets/js"
 
 # 博客首页
 def index(request):
@@ -44,7 +51,6 @@ def garden_list(request,type):
     return render(request,'blog/garden-list.html',context)
 
 
-
 # 主题
 def theme(request):
     try:
@@ -60,6 +66,129 @@ def theme(request):
         raise Http404
 
     return render(request, 'blog/theme.html', context)
+
+
+
+# echart 各种图表
+def echart(request):
+    try:
+        context = dict(
+                primary = 'pyechart',
+                slide = 'Echart',
+                product = 'nuoxiao'
+        )
+    except Exception:
+        raise Http404
+
+    # return HttpResponse(template.render(context, request))
+    return render(request, 'echarts/index.html', context)
+# 3D 线图
+def line3d(request):
+    try:
+        template = loader.get_template('echarts/line3d.html')
+        l3d = pyecharts_line3d()
+        context = dict(
+            myechart = l3d.render_embed(),
+            host = REMOTE_HOST,
+            script_list = l3d.get_js_dependencies()
+        )
+    except Exception:
+        raise Http404
+
+    # return HttpResponse(template.render(context, request))
+    return render(request, 'echarts/line3d.html', context)
+def pyecharts_line3d():
+    _data = []
+    for t in range(0, 25000):
+        _t = t / 1000
+        x = (1 + 0.25 * math.cos(75 * _t)) * math.cos(_t)
+        y = (1 + 0.25 * math.cos(75 * _t)) * math.sin(_t)
+        z = _t + 2.0 * math.sin(75 * _t)
+        _data.append([x, y, z])
+
+    range_color = [
+        '#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf',
+        '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+
+    line3d = Line3D("Echarts 3D 线图", width=1200, height=600)
+    line3d.add("", _data, is_visualmap=True, visual_range_color=range_color, visual_range=[0, 30],
+               is_grid3D_rotate=True, grid3D_rotate_speed=180)
+
+    return line3d
+# 柱状图
+def bar(request):
+    try:
+        template = loader.get_template('echarts/bar.html')
+
+        bar = Bar('第一张图标', '副标题')
+        bar.add("服装", ["衣服", "鞋子", "袜子", "帽子", "眼镜"], [2, 4, 15, 6, 23], is_more_utils=True)
+        context = dict(
+                myechart=bar.render_embed(),
+                host=REMOTE_HOST,
+                script_list=bar.get_js_dependencies()
+        )
+
+    except Exception:
+        raise Http404
+
+    return render(request, 'echarts/bar.html', context)
+# 线图
+def line(request):
+    try:
+        template = loader.get_template('echarts/line.html')
+
+        line = Line('第一张图标', '副标题')
+        line.add("服装", ["衣服", "鞋子", "袜子", "帽子", "眼镜"], [2, 4, 15, 6, 23], is_convert=True)
+        context = dict(
+                myechart=line.render_embed(),
+                host=REMOTE_HOST,
+                script_list=line.get_js_dependencies()
+        )
+
+    except Exception:
+        raise Http404
+
+    return render(request, 'echarts/line.html', context)
+# 柱状图-线图
+def bar_line(request):
+    try:
+        template = loader.get_template('echarts/line.html')
+
+        line = Line('第一张图标', '副标题')
+        line.add("服装", ["衣服", "鞋子", "袜子", "帽子", "眼镜"], [2, 4, 15, 6, 23], is_convert=True)
+        context = dict(
+                myechart=line.render_embed(),
+                host=REMOTE_HOST,
+                script_list=line.get_js_dependencies()
+        )
+
+    except Exception:
+        raise Http404
+
+    return render(request, 'echarts/line.html', context)
+# 地图
+def map(request):
+    try:
+        value = [155, 10, 66, 78]
+        attr = ["福建", "山东", "北京", "上海"]
+        map = Map("全国地图示例", width=1200, height=600)
+        map.add("", attr, value, maptype='china', is_label_show=True)
+        map.on(events.MOUSE_CLICK, on_click)
+
+        context = dict(
+                myechart=map.render_embed(),
+                host=REMOTE_HOST,
+                script_list=map.get_js_dependencies()
+        )
+
+    except Exception:
+        raise Http404
+
+    return render(request, 'echarts/map.html', context)
+
+def on_click(params):
+    alert(params.name)
+
 
 # 404
 def notfound(request):
